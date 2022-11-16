@@ -21,3 +21,5 @@ def short1(arr):
 
 with open("values.txt","r") as f:
     f.read
+
+    
