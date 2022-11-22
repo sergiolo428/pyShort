@@ -22,13 +22,15 @@ def short1(arr):
     see(arr)
 
 # Get values from files
-def extract():
+def extract(filename):
     data=[]
-    with open("values.txt","r") as f:
+    file=filename + ".txt"
+    with open(file,"r") as f:
         for line in f:
             data.append(line.split())
     return data
 
+#Flatten lines into a single array
 def flatten(info):
     final_list=[]
     for  i in info:
@@ -36,5 +38,13 @@ def flatten(info):
             final_list.append(j)
     return final_list
 
-info=flatten(extract())
-see(info)
+# Short one array by the info in other one
+def short(nums,words):
+    zip_list=zip(words,nums)
+    sorted_pair=sorted(zip_list)
+    tuples=zip(*sorted_pair)
+    list1, list2 = [ list(tuple) for tuple in tuples]
+    print(list1)
+    print(list2)
+
+#short(extract("values"),extract("words"))
